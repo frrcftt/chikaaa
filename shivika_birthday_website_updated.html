@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Shivika — Chika</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Great+Vibes&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fff8ef;--pink:#f5d9df;--rose:#b75f76;--ink:#242323;--muted:#82746d}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"DM Sans",sans-serif;background:var(--cream);color:var(--ink)}
+body{overflow-x:hidden}
+.page{display:none;min-height:100vh;padding:clamp(24px,5vw,70px);position:relative;overflow:hidden}
+.page.active{display:flex;animation:enter .65s ease both}
+@keyframes enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.birthday{background:radial-gradient(circle at 12% 12%,#fff 0,transparent 34%),linear-gradient(135deg,#fff7ed,#f9e4e7 55%,#f2d7cf)}
+.birthday:before{content:"";position:absolute;inset:18px;border:1px solid #bd879544;border-radius:28px;pointer-events:none}
+.wrap{width:min(100%,1000px);margin:auto;position:relative;z-index:1}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;font:11px "DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#856e68}
+.pill{border:1px solid #ffffffaa;background:#ffffff55;backdrop-filter:blur(12px);padding:9px 14px;border-radius:99px}
+.center{text-align:center}
+.eyebrow{font:11px "DM Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--rose)}
+h1,h2,h3,p{margin-top:0}
+h1{font-family:"Bodoni Moda","Playfair Display",serif;font-weight:500;letter-spacing:-.055em;line-height:.93}
+h2{font-family:"Playfair Display",serif;font-weight:500;letter-spacing:-.03em}
+.big{font-size:clamp(4rem,12vw,9rem)}
+.mid{font-size:clamp(2.8rem,8vw,6rem)}
+.script{font-family:"Great Vibes",cursive;color:#a95e76;font-size:clamp(2.7rem,6vw,5rem)}
+.lead{font-size:clamp(1rem,2.2vw,1.25rem);line-height:1.85;color:#665b56;max-width:650px;margin:22px auto}
+.btnrow{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{border:0;cursor:pointer;text-decoration:none;font:12px "DM Mono",monospace;letter-spacing:.1em;text-transform:uppercase;padding:15px 21px;border-radius:99px;transition:.25s}
+.btn:hover{transform:translateY(-3px)}
+.primary{background:#292323;color:#fff}
+.soft{background:#ffffff90;border:1px solid #fff;color:#342a2b}
+.card{background:#ffffff72;border:1px solid #ffffffb5;backdrop-filter:blur(18px);box-shadow:0 18px 60px #a06c7620;border-radius:26px;padding:clamp(22px,4vw,42px)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:30px}
+.note{font-size:clamp(1rem,2vw,1.15rem);line-height:1.75;color:#665b56}
+.note strong{color:#302526}
+.sticker{position:absolute;font-size:clamp(2rem,5vw,4rem);opacity:.75;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-14px) rotate(5deg)}}
+.heart{color:#ba6178}
+.bigname{font-size:clamp(5rem,17vw,13rem);line-height:.8}
+.outline{color:transparent;-webkit-text-stroke:1px #a75c73}
+.birthday2{background:linear-gradient(150deg,#fff8f1,#f1dce4)}
+.photo-placeholder{height:190px;border:1px dashed #bd8795;border-radius:20px;display:grid;place-items:center;color:#9b707b;font:11px "DM Mono",monospace;letter-spacing:.1em;text-align:center;padding:20px}
+.mini{font:10px "DM Mono",monospace;letter-spacing:.14em;color:#927d76;text-transform:uppercase}
+.mafia{background:#080808;color:#f5f5f5;font-family:"DM Sans",sans-serif}
+.mafia:before{content:"";position:absolute;inset:18px;border:1px solid #ffffff26;pointer-events:none}
+.mafia .topline{color:#bdbdbd}
+.mafia .eyebrow{color:#a5a5a5}
+.mafia h1,.mafia h2{font-family:"Bodoni Moda",serif}
+.mafia .lead{color:#bcbcbc}
+.mafia .card{background:#151515;border:1px solid #ffffff18;box-shadow:0 20px 80px #000}
+.mafia .btn.primary{background:#fff;color:#111}
+.mafia .btn.soft{background:#171717;border:1px solid #555;color:#fff}
+.mafia .script{color:#d0d0d0}
+.mafia .note{color:#bcbcbc}
+.mafia .note strong{color:#fff}
+.rule{height:1px;background:linear-gradient(90deg,transparent,#888,transparent);margin:26px 0}
+.quote{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(1.4rem,4vw,2.4rem);line-height:1.45}
+.letter{max-width:700px;margin:25px auto;text-align:left;line-height:2;font-size:clamp(1rem,2vw,1.13rem)}
+.signature{font-family:"Great Vibes",cursive;font-size:clamp(3rem,7vw,5rem);margin-top:18px}
+.pagecount{position:absolute;bottom:28px;right:clamp(25px,5vw,70px);font:10px "DM Mono",monospace;letter-spacing:.12em;opacity:.55}
+.progress{position:fixed;top:0;left:0;height:3px;background:#b76c80;width:0;z-index:10;transition:width .4s}
+.mafia .progress{background:#fff}
+.dots{display:flex;justify-content:center;gap:7px;margin-top:26px}
+.dot{width:5px;height:5px;border-radius:50%;background:#b58a91;opacity:.35}
+.dot.on{opacity:1;transform:scale(1.5)}
+@media(max-width:650px){#countdown h1{font-size:clamp(1.8rem,8vw,3rem)}.grid{grid-template-columns:1fr}.page{padding:30px 22px 58px}.birthday:before,.mafia:before{inset:10px;border-radius:20px}.pagecount{bottom:17px}.topline{font-size:9px}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<!-- PAGE 1: COVER -->
+<section class="page birthday active" id="p1">
+<div class="sticker" style="top:18%;left:9%">✦</div><div class="sticker" style="bottom:20%;right:10%;animation-delay:1s">♡</div>
+<div class="wrap center">
+<div class="topline"><span>an occasion worth a little page</span><span class="pill">20 / 11 · your special day</span></div>
+<div style="margin-top:clamp(50px,12vh,110px)">
+<p class="eyebrow">For the birthday girl</p>
+<h1 class="big">A little<br><span class="outline">something</span></h1>
+<div class="script">for Shivika ♡</div>
+<p class="lead">A few pages, a few words, and a small surprise<br>for someone whose presence is pretty lovely.</p>
+</div>
+<div class="btnrow"><button class="btn primary" onclick="go(2)">Open your surprise ↗</button></div>
+<p class="mini" style="margin-top:34px">Swipe through / tap to continue</p>
+</div><span class="pagecount">01 / 11</span>
+</section>
+
+
+<!-- PAGE 2: BIRTHDAY COUNTDOWN -->
+<section class="page birthday2" id="p2">
+  <div class="wrap center">
+    <div class="topline"><span>one more sleep</span><span class="pill">20 November · 14</span></div>
+    <p class="eyebrow" style="margin-top:8vh">The countdown to your day</p>
+    <h1 class="mid">Almost<br><span class="script">your birthday…</span></h1>
+    <p class="lead">Someone special is about to turn fourteen. And yes, this little countdown is here because your day deserves more than an ordinary message.</p>
+    <div class="card" style="max-width:650px;margin:28px auto">
+      <div id="countdown" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px">
+        <div><h1 class="mid" id="cd-days" style="margin-bottom:4px">00</h1><span class="mini">days</span></div>
+        <div><h1 class="mid" id="cd-hours" style="margin-bottom:4px">00</h1><span class="mini">hours</span></div>
+        <div><h1 class="mid" id="cd-minutes" style="margin-bottom:4px">00</h1><span class="mini">minutes</span></div>
+        <div><h1 class="mid" id="cd-seconds" style="margin-bottom:4px">00</h1><span class="mini">seconds</span></div>
+      </div>
+      <p id="countdown-message" class="note center" style="margin:20px 0 0">Counting down to 20 November…</p>
+    </div>
+    <h2 style="font-size:clamp(2rem,5vw,3.5rem)">14 looks good on you. ♡</h2>
+    <button class="btn primary" onclick="go(3)">Continue →</button>
+  </div><span class="pagecount">02 / 11</span>
+</section>
+
+<!-- PAGE 3: BIRTHDAY -->
+<section class="page birthday2" id="p3">
+<div class="wrap center">
+<div class="topline"><span>today is your day</span><span class="pill">chapter 01</span></div>
+<p class="eyebrow" style="margin-top:8vh">Happy birthday,</p>
+<h1 class="bigname">SHIVIKA</h1>
+<h2 class="mid" style="margin-top:15px">aka <span class="script">Chika</span></h2>
+<div class="rule"></div>
+<p class="lead">May this new year of your life bring you peaceful days, unexpected happiness, genuine people, and countless reasons to smile.</p>
+<div class="card" style="max-width:650px;margin:28px auto">
+<p class="quote">“Some people make ordinary conversations feel like the best part of the day.”</p>
+<p class="mini" style="margin-bottom:0">— a thought for today</p>
+</div>
+<button class="btn primary" onclick="go(4)">Next page →</button>
+</div><span class="pagecount">03 / 11</span>
+</section>
+
+<!-- PAGE 3: HOW WE MET / PERSONAL -->
+<section class="page birthday" id="p4">
+<div class="wrap">
+<div class="topline"><span>chapter 02 · the little things</span><span class="pill">✿</span></div>
+<div class="center" style="margin-top:8vh">
+<p class="eyebrow">A thought about you</p>
+<h1 class="mid">We met only<br><span class="script">recently…</span></h1>
+</div>
+<div class="card" style="max-width:760px;margin:30px auto">
+<p class="note">And even though it's only been some days, you have this genuinely nice personality that makes talking to you feel easy and enjoyable.</p>
+<p class="note">I like our conversations. Sometimes I catch myself wishing we could talk a little longer, share more random things, and get to know each other better over time.</p>
+<p class="note" style="margin-bottom:0">It's not about making some huge dramatic statement. I just think you're a lovely person, and I'm glad our paths crossed.</p>
+</div>
+<div class="center"><button class="btn primary" onclick="go(5)">Keep reading →</button></div>
+</div><span class="pagecount">04 / 11</span>
+</section>
+
+<!-- PAGE 4: THINGS I LIKE -->
+<section class="page birthday2" id="p5">
+<div class="wrap">
+<div class="topline"><span>chapter 03</span><span class="pill">things I appreciate</span></div>
+<div class="center" style="margin-top:7vh">
+<p class="eyebrow">A short list, honestly</p>
+<h1 class="mid">Things I like<br><span class="script">about you</span></h1>
+</div>
+<div class="grid">
+<div class="card"><span class="mini">01 / personality</span><h2 style="font-size:1.8rem;margin:13px 0">Your energy</h2><p class="note">You have a genuinely nice way of being yourself. It makes the conversation feel natural.</p></div>
+<div class="card"><span class="mini">02 / conversations</span><h2 style="font-size:1.8rem;margin:13px 0">Talking to you</h2><p class="note">The random chats, the little moments, and the fact that I want to keep the conversation going.</p></div>
+<div class="card"><span class="mini">03 / the little details</span><h2 style="font-size:1.8rem;margin:13px 0">Your vibe</h2><p class="note">There's something about your personality that makes you memorable without even trying.</p></div>
+<div class="card"><span class="mini">04 / simple truth</span><h2 style="font-size:1.8rem;margin:13px 0">You're lovely</h2><p class="note">No exaggerated lines. Just a real compliment that I wanted you to hear today.</p></div>
+</div>
+<div class="center" style="margin-top:26px"><button class="btn primary" onclick="go(6)">Wait… one complaint →</button></div>
+</div><span class="pagecount">05 / 11</span>
+</section>
+
+<!-- PAGE 5: FUNNY COMPLAINT -->
+<section class="page birthday" id="p6">
+<div class="wrap center">
+<div class="topline"><span>chapter 04 · official complaint</span><span class="pill">very serious matter</span></div>
+<div style="margin-top:10vh">
+<p class="eyebrow">There is, however…</p>
+<h1 class="mid">One thing I<br><span class="outline">hate about you</span></h1>
+</div>
+<div class="card" style="max-width:650px;margin:28px auto">
+<div style="font-size:3rem">⌛</div>
+<h2 style="font-size:clamp(2rem,5vw,3.5rem)">THE LATE REPLIES.</h2>
+<p class="note">Chika, the reply timing sometimes deserves its own documentary. 😭</p>
+<p class="note" style="margin-bottom:0">Complaint submitted. No punishment, no pressure—just me teasing you a little. Reply whenever you can, you have a life too. This is a birthday website, not a court hearing.</p>
+</div>
+<button class="btn primary" onclick="go(7)">Enter the other side →</button>
+</div><span class="pagecount">06 / 11</span>
+</section>
+
+<!-- PAGE 6: TRANSITION -->
+<section class="page mafia" id="p7">
+<div class="wrap center">
+<div class="topline"><span>the birthday dossier</span><span class="pill">chapter 05</span></div>
+<div style="margin-top:13vh">
+<p class="eyebrow">Switching the mood</p>
+<h1 class="big">THE<br>OTHER<br><span style="color:#777">SIDE.</span></h1>
+<p class="lead">The soft pages are over.<br>Now, a little black-and-white drama.</p>
+<div class="rule"></div>
+<p class="mini" style="color:#aaa">CLASSIFIED · CHIKA EDITION</p>
+</div>
+<button class="btn primary" onclick="go(8)">Proceed ↗</button>
+</div><span class="pagecount">07 / 11</span>
+</section>
+
+<!-- PAGE 7: BLACK AND WHITE BIRTHDAY -->
+<section class="page mafia" id="p8">
+<div class="wrap center">
+<div class="topline"><span>chapter 06 · monochrome</span><span class="pill">special edition</span></div>
+<div style="margin-top:8vh">
+<p class="eyebrow">A statement for the occasion</p>
+<h1 class="big">HAPPY<br><span style="color:#777">BIRTHDAY</span></h1>
+<h2 style="font-size:clamp(2.2rem,7vw,5rem);margin-top:20px">SHIVIKA.</h2>
+</div>
+<div class="card" style="max-width:700px;margin:30px auto">
+<p class="quote">“May your next chapter be full of quiet confidence, beautiful memories, people who mean what they say, and happiness that doesn't need to be explained.”</p>
+<div class="rule"></div>
+<p class="note">Keep being yourself. Keep laughing at the random stuff. Keep finding reasons to enjoy the little things. You deserve a birthday that feels like yours.</p>
+</div>
+<button class="btn primary" onclick="go(9)">A note for you →</button>
+</div><span class="pagecount">08 / 11</span>
+</section>
+
+
+<!-- PAGE 9: A NOTE TO TAKE CARE -->
+<section class="page birthday" id="p9">
+  <div class="wrap">
+    <div class="topline"><span>chapter 08 · something I mean</span><span class="pill">please read this</span></div>
+    <div class="center" style="margin-top:7vh">
+      <p class="eyebrow">A little reminder, from my heart</p>
+      <h1 class="mid">Please be<br><span class="script">careful with your heart.</span></h1>
+    </div>
+    <div class="card" style="max-width:780px;margin:28px auto">
+      <p class="note">Chika, one thing I really want you to understand is this: don't give everyone the same access to your heart just because you know how to care about people. I know you can trust someone, get attached, tell them things, and genuinely expect them to understand you. But not everyone knows how to value that trust.</p>
+      <p class="note">Sometimes the people we trust the most are the ones who end up making us cry. And when that happens, please don't start thinking that there's something wrong with you. Your kindness isn't a weakness, your feelings aren't a problem, and caring deeply doesn't make you foolish. It only means your heart is genuine.</p>
+      <p class="note">But please, don't keep giving chances to people who repeatedly hurt you. Don't ignore your own feelings just to keep someone in your life. Learn to notice who respects you, who listens when you're upset, and who stays kind even when they don't need anything from you. Trust people slowly. Let their actions earn it.</p>
+      <p class="note">And don't change the good parts of yourself because someone failed to appreciate them. Be yourself, keep growing, and improve for your own happiness—not to prove your worth to anyone. You are already a nice person; just become wiser about who gets to see every side of you.</p>
+      <p class="note" style="margin-bottom:0"><strong>Stay soft, but don't let people treat you carelessly. Be kind, but keep your boundaries. And whenever life feels heavy, remember that you deserve the same care you keep giving to everyone else.</strong></p>
+    </div>
+    <div class="center"><button class="btn primary" onclick="go(10)">One last thing… →</button></div>
+  </div><span class="pagecount">09 / 11</span>
+</section>
+
+<!-- PAGE 10: LETTER -->
+<section class="page mafia" id="p10">
+<div class="wrap center">
+<div class="topline"><span>chapter 09 · the last page</span><span class="pill">with good wishes</span></div>
+<p class="eyebrow" style="margin-top:7vh">To Chika</p>
+<h1 class="mid">One last<br><span class="script">little note.</span></h1>
+<div class="card" style="max-width:720px;margin:25px auto">
+<div class="letter">
+<p>Happy birthday once again, Shivika.</p>
+<p>I know we met only recently, but I wanted to make something a little different instead of sending just one ordinary birthday message. I hope this made you smile at least a little.</p>
+<p>You're a nice person, and I genuinely enjoy talking with you. I hope we get to have many more conversations, discover more random things about each other, and make some good memories—without any rush or expectations.</p>
+<p>Have a wonderful day, Chika. Take care of yourself, enjoy your birthday, and may this year be kinder, happier, and full of things you look forward to.</p>
+<p>And yes, I still reserve the right to complain about your late replies. 😂</p>
+<p style="margin-bottom:0">Happy birthday ♡</p>
+</div>
+<div class="rule"></div>
+<div class="mini" style="color:#bbb">written & created by</div>
+<div class="signature">your Adii</div>
+</div>
+<div class="btnrow">
+<button class="btn soft" onclick="go(1)">↺ Start again</button>
+<button class="btn primary" onclick="go(11)">One last surprise ✦</button>
+</div><span class="pagecount">10 / 11</span>
+</section>
+
+
+<!-- PAGE 11: THE NICKNAME REVEAL -->
+<section class="page mafia" id="p11">
+  <div class="wrap center">
+    <div class="topline"><span>one final secret</span><span class="pill">just between us</span></div>
+    <div style="margin-top:10vh">
+      <p class="eyebrow">I have decided something</p>
+      <h1 class="mid">Your new<br><span style="color:#aaa">special name.</span></h1>
+      <p class="lead">Not everyone gets to use this one. It's my little nickname for you, and I am officially giving it to you today.</p>
+    </div>
+    <div class="card" style="max-width:760px;margin:30px auto;padding:clamp(30px,7vw,70px)">
+      <p class="mini" style="color:#aaa">From now on, I'll call you…</p>
+      <h1 style="font-family:'Great Vibes',cursive;font-size:clamp(6rem,22vw,14rem);line-height:1;color:#fff;margin:15px 0">cokii</h1>
+      <div class="rule"></div>
+      <p class="quote">“A tiny name for someone who deserves a little extra place in my words.”</p>
+      <p class="note" style="margin-bottom:0">So happy 14th birthday, cokii. This nickname is reserved for you. ♡</p>
+    </div>
+    <div class="btnrow">
+      <button class="btn soft" onclick="go(1)">↺ Read it again</button>
+      <button class="btn primary" onclick="celebrate()">Keep this little surprise ✦</button>
+    </div>
+  </div><span class="pagecount">11 / 11</span>
+</section>
+
+<script>
+
+function updateCountdown(){
+  // Birthday: 20 November 2026, using the visitor's local time.
+  const target = new Date(2026, 10, 20, 0, 0, 0).getTime();
+  const now = Date.now();
+  const diff = target - now;
+  const message = document.getElementById('countdown-message');
+  if(diff <= 0){
+    ['cd-days','cd-hours','cd-minutes','cd-seconds'].forEach(id => document.getElementById(id).textContent='00');
+    message.textContent = "It's your birthday, Shivika! Happy 14th birthday, cokii! ♡";
+    return;
+  }
+  const day = Math.floor(diff / 86400000);
+  const hour = Math.floor((diff % 86400000) / 3600000);
+  const minute = Math.floor((diff % 3600000) / 60000);
+  const second = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent=String(day).padStart(2,'0');
+  document.getElementById('cd-hours').textContent=String(hour).padStart(2,'0');
+  document.getElementById('cd-minutes').textContent=String(minute).padStart(2,'0');
+  document.getElementById('cd-seconds').textContent=String(second).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+const pages=[...document.querySelectorAll('.page')];
+let current=1;
+function go(n){
+  if(n<1||n>pages.length)return;
+  pages[current-1].classList.remove('active');
+  current=n;
+  pages[current-1].classList.add('active');
+  document.getElementById('progress').style.width=(current/pages.length*100)+'%';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function celebrate(){
+  for(let i=0;i<55;i++){
+    const el=document.createElement('span');
+    el.textContent=['✦','♡','✧','·'][Math.floor(Math.random()*4)];
+    el.style.cssText=`position:fixed;z-index:99;left:${Math.random()*100}vw;top:-20px;font-size:${12+Math.random()*22}px;color:${Math.random()>.5?'#fff':'#aaa'};pointer-events:none;animation:fall ${2+Math.random()*3}s linear forwards`;
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),5200);
+  }
+}
+const style=document.createElement('style');
+style.textContent='@keyframes fall{to{transform:translateY(110vh) rotate(540deg);opacity:0}}';
+document.head.appendChild(style);
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'&&current<pages.length)go(current+1);
+  if(e.key==='ArrowLeft'&&current>1)go(current-1);
+});
+let startX=0;
+document.addEventListener('touchstart',e=>{startX=e.changedTouches[0].screenX},{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].screenX-startX;
+  if(Math.abs(dx)>90){if(dx<0&&current<pages.length)go(current+1);if(dx>0&&current>1)go(current-1)}
+},{passive:true});
+document.getElementById('progress').style.width=(100/pages.length)+'%';
+</script>
+</body>
+</html>
